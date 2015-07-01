@@ -1,6 +1,6 @@
 <?php
 
-namespace Mapbender\AlkisBundle\Element\Type;
+namespace Mapbender\ZoomcoordinateBundle\Element;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
