@@ -1,0 +1,19 @@
+<div class="defaultForm elementForm">
+    {{ form_label(form.title) }}{{ form_widget(form.title) }}
+    <div class="clearContainer"></div>
+    {#
+    {{ form_label(form.configuration.koordinatensystem) }}{{ form_widget(form.configuration.koordinatensystem) }}
+    <div class="clearContainer"></div>
+     set srsData from Solr configuration (parameters.yml)
+    {{ form_label(form.configuration.dataSrs) }}{{ form_widget(form.configuration.dataSrs) }}
+    <div class="clearContainer"></div>
+    
+    {{ form_label(form.configuration.options) }}{{ form_widget(form.configuration.options) }}
+    <div class="clearContainer"></div>
+    #}
+    {{ form_label(form.configuration.target) }}{{ form_widget(form.configuration.target) }}
+    {{ form_label(form.configuration.prefix_x) }}{{ form_widget(form.configuration.prefix_x) }}
+    {{ form_label(form.configuration.prefix_y) }}{{ form_widget(form.configuration.prefix_y) }}
+    <div class="clearContainer"></div>
+    
+</div>
