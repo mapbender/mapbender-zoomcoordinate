@@ -1,0 +1,23 @@
+{
+    "name": "mapbender/zoomcoordinate",
+    "description": "Mapbender zoomcoordinate element",
+    "keywords": ["mapbender", "zoomcoordinate"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomy Keller"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mapbender\\ZoomcoordinateBundle": "src/"
+        }
+    }
+}
