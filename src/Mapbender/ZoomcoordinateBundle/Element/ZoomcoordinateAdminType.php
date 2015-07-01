@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  *
  * @author Paul Schmidt
  */
-class AlkisSearchXYAdminType extends AbstractType
+class ZoomcoordinateAdminType extends AbstractType
 {
 
     /**
@@ -19,7 +19,7 @@ class AlkisSearchXYAdminType extends AbstractType
      */
     public function getName()
     {
-        return 'alkissearchxy';
+        return 'zoomcoordinate';
     }
 
     /**

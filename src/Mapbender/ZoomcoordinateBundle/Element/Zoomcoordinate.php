@@ -1,6 +1,6 @@
 <?php
 
-namespace Mapbender\Zoomcoordinate\Element;
+namespace Mapbender\ZoomcoordinateBundle\Element;
 
 use Mapbender\CoreBundle\Component\Element;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +22,7 @@ class Zoomcoordinate extends Element
      */
     static public function getClassDescription()
     {
-        return "AlkisSucheXY Description"; # TODO "mb.alkis.alkis_search.class.description";
+        return "Zoomcoordinate Description"; # TODO "mb.alkis.alkis_search.class.description";
     }
 
     /**
@@ -93,7 +93,7 @@ class Zoomcoordinate extends Element
             'js' => array('mapbender.element.zoomcoordinate.js',
                 '@FOMCoreBundle/Resources/public/js/widgets/popup.js'),
             'css' => array(
-                '@MapbenderAlkisBundle/Resources/public/sass/element/mapbender.element.alkissearchxy.scss')
+                '@MapbenderZoomcoordinateBundle/Resources/public/sass/element/mapbender.element.zoomcoordinate.scss')
         );
     }
 
@@ -104,7 +104,7 @@ class Zoomcoordinate extends Element
     {
         return $this->container->get('templating')
                 ->render(
-                    'MapbenderAlkisBundle:Element:alkissearchxy.html.twig',
+                    'MapbenderZoomcoordinateBundle:Element:zoomcoordinate.html.twig',
                     array(
                     'id' => $this->getId(),
                     'title' => $this->getTitle(),
@@ -143,7 +143,7 @@ class Zoomcoordinate extends Element
             ->find($term);
         // Übergabe an Template
         $html = $this->container->get('templating')->render(
-            'MapbenderAlkisBundle:Element:results.html.twig', array('result' => $result)
+            'MapbenderZoomcoordinateBundle:Element:results.html.twig', array('result' => $result)
         );
         return new Response($html, 200, array('Content-Type' => 'text/html'));
     }
