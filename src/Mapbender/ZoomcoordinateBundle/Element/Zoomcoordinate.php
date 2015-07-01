@@ -6,7 +6,7 @@ use Mapbender\CoreBundle\Component\Element;
 use Symfony\Component\HttpFoundation\Response;
 use ARP\SolrClient2\SolrClient;
 
-class AlkisSearchXY extends Element
+class Zoomcoordinate extends Element
 {
 
     /**
@@ -14,7 +14,7 @@ class AlkisSearchXY extends Element
      */
     static public function getClassTitle()
     {
-        return "AlkisSucheXY"; # TODO "mb.alkis.alkis_search.class.title";
+        return "Zoomcoordinate"; # TODO "mb.alkis.alkis_search.class.title";
     }
 
     /**
@@ -73,7 +73,7 @@ class AlkisSearchXY extends Element
      */
     public static function getType()
     {
-        return 'Mapbender\ZoomcoordinateBundle\Element\AlkisSearchXYAdminType';
+        return 'Mapbender\ZoomcoordinateBundle\Element\ZoomcoordinateAdminType';
     }
 
     /**
@@ -81,7 +81,7 @@ class AlkisSearchXY extends Element
      */
     public static function getFormTemplate()
     {
-        return 'MapbenderZoomcoordinateBundle:ElementAdmin:alkissearchxy.html.twig';
+        return 'MapbenderZoomcoordinateBundle:ElementAdmin:zoomcoordinate.html.twig';
     }
 
     /**
@@ -90,7 +90,7 @@ class AlkisSearchXY extends Element
     public function getAssets()
     {
         return array(
-            'js' => array('mapbender.element.alkissearchxy.js',
+            'js' => array('mapbender.element.zoomcoordinate.js',
                 '@FOMCoreBundle/Resources/public/js/widgets/popup.js'),
             'css' => array(
                 '@MapbenderAlkisBundle/Resources/public/sass/element/mapbender.element.alkissearchxy.scss')
