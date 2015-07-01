@@ -1,6 +1,6 @@
 <?php
 
-namespace Mapbender\AlkisBundle\Element;
+namespace Mapbender\Zoomcoordinate\Element;
 
 use Mapbender\CoreBundle\Component\Element;
 use Symfony\Component\HttpFoundation\Response;
