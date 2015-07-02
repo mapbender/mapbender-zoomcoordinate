@@ -53,6 +53,7 @@
                 $(".mb-element-zoomcoordinate-input").addClass("zoomcoordinate-sidepane");
                 // $(".mb-element-zoomcoordinate").append("<a href='#mbpopup-0/button/close' class='button buttonCancel critical right mb-element-zoomcoordinate-button'>Cancel</a>");
                 $(".mb-element-zoomcoordinate").append("<a href='#mbpopup-0/button/search' class='button right mb-element-zoomcoordinate-button zoomcoordinate-sidepane-ok'>Ok</a>");
+                $(".mb-element-zoomcoordinate-text").css("font-size", "13px");
                 
                 this.activate();
             }
