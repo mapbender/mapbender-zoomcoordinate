@@ -3,27 +3,33 @@
 @import "modules/text";
 @import "modules/input";
 
-.mb-element-alkissearchxy-input {
+.mb-element-zoomcoordinate-input {
     width:35%;
     float:left;
     margin:18px 20% 0 0 ;
     text-align:center;
     padding:1px;
 }
-.mb-element-alkissearchxy-text {
+.mb-element-zoomcoordinate-text {
     font-size: 16px;
     width:45%;
     float:left;
     margin-top:18px;
 }
-.mb-element-alkissearchxy-button {
+.mb-element-zoomcoordinate-button {
     margin-right:10px;
     font-size:14px!important;
 }
-#alkissearchxy-kosy {
+#zoomcoordinate-kosy {
     width:50%;
     float:left;
     margin:18px 5% 0 0 ;
     text-align:center;
     padding:1px;
+}
+.zoomcoordinate-sidepane {
+    height:23px;
+}
+.zoomcoordinate-sidepane-ok {
+    margin:25px 5% 0 0 ;
 }

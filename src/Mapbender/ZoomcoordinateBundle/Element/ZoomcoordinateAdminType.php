@@ -54,6 +54,12 @@ class ZoomcoordinateAdminType extends AbstractType
 //                    "grund" => "Grundbuch")))
             ->add('prefix_x', 'text', array('required' => false))
             ->add('prefix_y', 'text', array('required' => false))
+            ->add('position', 'choice',
+                  array(
+                'required' => true,
+                'choices' => array(
+                    "toolbar/footer" => "toolbar/footer",
+                    "sidepane" => "sidepane")))
             ->add('target', 'target_element',
                 array(
                 'element_class' => 'Mapbender\\CoreBundle\\Element\\Map',

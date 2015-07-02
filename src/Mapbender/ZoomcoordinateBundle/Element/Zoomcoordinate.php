@@ -62,7 +62,7 @@ class Zoomcoordinate extends Element
      */
     public function getWidgetName()
     {
-        return 'mapbender.mbAlkisSearchXY';
+        return 'mapbender.mbZoomcoordinate';
     }
 
     /**
