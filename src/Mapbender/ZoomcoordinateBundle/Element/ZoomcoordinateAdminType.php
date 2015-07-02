@@ -52,14 +52,15 @@ class ZoomcoordinateAdminType extends AbstractType
 //                    "addr" => "Adresse",
 //                    "eigen" => "Eigentümer",
 //                    "grund" => "Grundbuch")))
+            ->add('prefix_x', 'text', array('required' => false))
+            ->add('prefix_y', 'text', array('required' => false))
             ->add('target', 'target_element',
                 array(
                 'element_class' => 'Mapbender\\CoreBundle\\Element\\Map',
                 'application' => $options['application'],
                 'property_path' => '[target]',
-                'required' => false))
-            ->add('prefix_x', 'text', array('required' => false))
-            ->add('prefix_y', 'text', array('required' => false));
+                'required' => false));
+            
     }
 
 }
