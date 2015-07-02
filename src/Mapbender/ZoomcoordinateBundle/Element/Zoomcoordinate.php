@@ -40,7 +40,7 @@ class Zoomcoordinate extends Element
         return array(
             'title' => 'search',
             'koordinatensystem' => array(),
-            'tooltip' => 'search',
+            'tooltip' => 'zoom',
             'buffer' => 0.5,
             'options' => array(),
 //            'dataSrs' => null, set srsData from Solr configuration (parameters.yml)

@@ -14,23 +14,17 @@
             Mapbender.elementRegistry.onElementReady(this.options.target, $.proxy(this._setup, this));
         },
         _setup: function() {
+            var prefix_proj = this.options.prefix_projection;
+            if (prefix_proj !== null) {
+                $(".mb-element-zoomcoordinate-text").eq(0).html(prefix_proj);
+            }
             var title1 = this.options.prefix_x;
-            if (title1.length > 0 ) {
-                if(title1.slice(-1) !== ":") {
-                    $(".mb-element-zoomcoordinate-text").eq(1).html(title1 + " :"); 
-                }
-                else {
-                    $(".mb-element-zoomcoordinate-text").eq(1).html(title1);
-                }
+            if (title1 !== null) {
+                $(".mb-element-zoomcoordinate-text").eq(1).html(title1);
             }
             var title2 = this.options.prefix_y;
-            if (title2.length > 0 ) {
-                if(title2.slice(-1) !== ":") {
-                    $(".mb-element-zoomcoordinate-text").eq(2).html(title2 + " :"); 
-                }
-                else {
-                    $(".mb-element-zoomcoordinate-text").eq(2).html(title2);
-                }
+            if (title2 !== null) {
+                $(".mb-element-zoomcoordinate-text").eq(2).html(title2);
             }
             this.target = $("#" + this.options.target).data("mapbenderMbMap");//.getModel();
             //var mbMap = this.mapWidget.data('mapbenderMbMap');
@@ -47,8 +41,8 @@
                 {
                     map: $('#' + this.options.target).data('mapQuery').olMap
                 });
-            
-            if(this.options.position === 'sidepane') {
+                
+            if(this.options.type === 'element') {
                 $(".mb-element-zoomcoordinate").removeClass("hidden");
                 $(".mb-element-zoomcoordinate-input").addClass("zoomcoordinate-sidepane");
                 // $(".mb-element-zoomcoordinate").append("<a href='#mbpopup-0/button/close' class='button buttonCancel critical right mb-element-zoomcoordinate-button'>Cancel</a>");
@@ -57,8 +51,7 @@
                 
                 this.activate();
             }
-                
-                
+               
             if (this.options.autoActivate)
                 this.activate();
             this._trigger('ready');
@@ -94,7 +87,7 @@
             
             var self = this;
             
-            if(this.options.position === 'sidepane') {
+            if(this.options.type === 'element') {
                 $(".zoomcoordinate-sidepane-ok").click(function(){
                     self._findSuccess();
                 });
