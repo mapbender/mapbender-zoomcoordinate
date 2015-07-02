@@ -81,7 +81,7 @@ class Zoomcoordinate extends Element
      */
     public static function getFormTemplate()
     {
-        return 'MapbenderZoomcoordinateBundle:Element:zoomcoordinate.html.twig';
+        return 'MapbenderZoomcoordinateBundle::zoomcoordinateAdmin.html.twig';
     }
 
     /**
