@@ -14,6 +14,24 @@
             Mapbender.elementRegistry.onElementReady(this.options.target, $.proxy(this._setup, this));
         },
         _setup: function() {
+            var title1 = this.options.prefix_x;
+            if (title1.length > 0 ) {
+                if(title1.slice(-1) !== ":") {
+                    $(".mb-element-alkissearchxy-text").eq(1).html(title1 + " :"); 
+                }
+                else {
+                    $(".mb-element-alkissearchxy-text").eq(1).html(title1);
+                }
+            }
+            var title2 = this.options.prefix_y;
+            if (title2.length > 0 ) {
+                if(title2.slice(-1) !== ":") {
+                    $(".mb-element-alkissearchxy-text").eq(2).html(title2 + " :"); 
+                }
+                else {
+                    $(".mb-element-alkissearchxy-text").eq(2).html(title2);
+                }
+            }
             this.target = $("#" + this.options.target).data("mapbenderMbMap");//.getModel();
             //var mbMap = this.mapWidget.data('mapbenderMbMap');
             var options = "";

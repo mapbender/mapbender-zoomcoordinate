@@ -4,7 +4,6 @@ namespace Mapbender\ZoomcoordinateBundle\Element;
 
 use Mapbender\CoreBundle\Component\Element;
 use Symfony\Component\HttpFoundation\Response;
-use ARP\SolrClient2\SolrClient;
 
 class Zoomcoordinate extends Element
 {
@@ -55,8 +54,6 @@ class Zoomcoordinate extends Element
     public function getConfiguration()
     {
         $configuration = parent::getConfiguration();
-        $solr = $this->container->getParameter('solr');
-        $configuration['dataSrs'] = $solr['srs'];
         return $configuration;
     }
 
@@ -104,7 +101,7 @@ class Zoomcoordinate extends Element
     {
         return $this->container->get('templating')
                 ->render(
-                    'MapbenderZoomcoordinateBundle:Element:zoomcoordinate.html.twig',
+                    'MapbenderZoomcoordinateBundle::zoomcoordinate.html.twig',
                     array(
                     'id' => $this->getId(),
                     'title' => $this->getTitle(),
@@ -126,26 +123,6 @@ class Zoomcoordinate extends Element
         }
     }
 
-    protected function search()
-    {
-        $term = $this->container->get('request')->get("term", null);
-        $page = $this->container->get('request')->get("page", 1);
-        $type = $this->container->get('request')->get("type", 'flur');
-
-        $solr = new SolrClient(
-            $this->container->getParameter('solr')
-        );
-        // Suche
-        $result = $solr
-            ->wildcardMinStrlen(1)
-            ->page($page)
-            ->where('type', $type)
-            ->find($term);
-        // Übergabe an Template
-        $html = $this->container->get('templating')->render(
-            'MapbenderZoomcoordinateBundle:Element:results.html.twig', array('result' => $result)
-        );
-        return new Response($html, 200, array('Content-Type' => 'text/html'));
-    }
+    
 
 }
