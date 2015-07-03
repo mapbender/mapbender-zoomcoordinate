@@ -45,11 +45,18 @@
             if(this.options.type === 'element') {
                 $(".mb-element-zoomcoordinate").removeClass("hidden");
                 $(".mb-element-zoomcoordinate-input").addClass("zoomcoordinate-sidepane");
-                // $(".mb-element-zoomcoordinate").append("<a href='#mbpopup-0/button/close' class='button buttonCancel critical right mb-element-zoomcoordinate-button'>Cancel</a>");
                 $(".mb-element-zoomcoordinate").append("<a href='#mbpopup-0/button/search' class='button right mb-element-zoomcoordinate-button zoomcoordinate-sidepane-ok'>Ok</a>");
+                $(".mb-element-zoomcoordinate").append("<a href='#mbpopup-0/button/close' class='button buttonCancel critical right mb-element-zoomcoordinate-button zoomcoordinate-sidepane-clear'>Clear</a>");
                 $(".mb-element-zoomcoordinate-text").css("font-size", "13px");
                 
                 this.activate();
+            }
+            else {
+                $(".zoomcoordinate-sidepane-ok").remove();
+                $(".zoomcoordinate-sidepane-clear").remove();
+                $(".mb-element-zoomcoordinate").addClass("hidden");
+                $(".mb-element-zoomcoordinate").removeClass("zoomcoordinate-sidepane");
+                
             }
                
             if (this.options.autoActivate)
@@ -82,6 +89,7 @@
         },
         _getContext: function() {
             
+            var self = this;
             this.controlInput();
             this.getKoosystems();
             
@@ -90,6 +98,13 @@
             if(this.options.type === 'element') {
                 $(".zoomcoordinate-sidepane-ok").click(function(){
                     self._findSuccess();
+                }); 
+                $(".zoomcoordinate-sidepane-clear").click(function(){
+                    $(".mb-element-zoomcoordinate-input").eq(1).val("");
+                    $(".mb-element-zoomcoordinate-input").eq(2).val("");
+                    if(self.MarkerLayer) {
+                        self.MarkerLayer.clearMarkers();
+                    }
                 });
             }
             else {
@@ -160,7 +175,7 @@
             var mbMap = this.mapWidget.data('mapbenderMbMap');
             var options = "";
             var allSrs = mbMap.getAllSrs();
-            //debugger;
+           
             if ($("#zoomcoordinate-kosy option").length < 1) {
                 $("#zoomcoordinate-kosy").append(
                                 '<option value=' + allSrs[0].name + ' selected="selected">' + allSrs[0].title + '</option>');
@@ -199,10 +214,7 @@
                 Mapbender.info('Bitte überprüfen sie Ihre Eingabe');
             }
             else {
-                xInput.val("");
-                yInput.val("");
                 var point = new OpenLayers.Geometry.Point(x, y);
-//                debugger;
                 point = point.transform(koSystemAlt, koSystemNeu);
                 var newPoint = new OpenLayers.Geometry.Point(point.x, point.y);
                 this._zoomToTarget(newPoint);
@@ -229,9 +241,39 @@
             }
         },
         _setCenter: function(point, map) {
+            
             var targetCoord = new OpenLayers.LonLat(point.x, point.y);
             map.setCenter(targetCoord);
+
+            var olMap = map;
+            var coordinates = {
+                pixel: {
+                    x: point.x,
+                    y: point.y
+                },
+                world: {
+                    x: targetCoord.lon,
+                    y: targetCoord.lat
+                }
+            };
+            if(!this.MarkerLayer) {
+                this.MarkerLayer = new OpenLayers.Layer.Markers();
+                this.target.map.olMap.addLayer(this.MarkerLayer);
+            }
+            this.MarkerLayer.clearMarkers();
+            var poiMarker = new OpenLayers.Marker(targetCoord, new OpenLayers.Icon(
+                Mapbender.configuration.application.urls.asset +
+                    this.target.options.poiIcon.image, {
+                        w: this.target.options.poiIcon.width,
+                        h: this.target.options.poiIcon.height
+                    }, {
+                        x: this.target.options.poiIcon.xoffset,
+                        y: this.target.options.poiIcon.yoffset
+                    }));
+            this.MarkerLayer.addMarker(poiMarker);
+            
             $.proxy(this._zoom(map), false);
+            debugger;
 
         },
         _findError: function(response) {

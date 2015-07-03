@@ -38,20 +38,6 @@ class ZoomcoordinateAdminType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('tooltip', 'text', array('required' => false))
-//            ->add('koordinatensystem', 'text', array('required' => true));
-//            set srsData from Solr configuration (parameters.yml)
-//            ->add('dataSrs', 'text', array('required' => true))
-//            ->add('buffer', 'number', array('required' => true))
-//            ->add('options', 'choice',
-//                  array(
-//                'required' => true,
-//                'multiple' => true,
-//                'choices' => array(
-//                    "flur" => "Flurstücke",
-//                    "beba" => "Bebauungspläne",
-//                    "addr" => "Adresse",
-//                    "eigen" => "Eigentümer",
-//                    "grund" => "Grundbuch")))
             ->add('prefix_projection', 'text', array('required' => false))
             ->add('prefix_x', 'text', array('required' => false))
             ->add('prefix_y', 'text', array('required' => false))
