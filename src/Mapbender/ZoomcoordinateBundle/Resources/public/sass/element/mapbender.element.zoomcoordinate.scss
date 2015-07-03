@@ -4,9 +4,9 @@
 @import "modules/input";
 
 .mb-element-zoomcoordinate-input {
-    width:35%;
+    width:50%;
     float:left;
-    margin:18px 20% 0 0 ;
+    margin:18px 0 0 0 ;
     text-align:center;
     padding:1px;
 }
@@ -31,5 +31,8 @@
     height:23px;
 }
 .zoomcoordinate-sidepane-ok {
+    margin:25px 5% 0 0 ;
+}
+.zoomcoordinate-sidepane-clear {
     margin:25px 5% 0 0 ;
 }
