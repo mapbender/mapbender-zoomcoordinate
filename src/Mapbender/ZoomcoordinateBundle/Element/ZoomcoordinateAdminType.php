@@ -19,7 +19,7 @@ class ZoomcoordinateAdminType extends AbstractType
      */
     public function getName()
     {
-        return 'zoomcoodinate';
+        return 'zoomcoordinate';
     }
 
     /**
@@ -37,7 +37,7 @@ class ZoomcoordinateAdminType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('tooltip', 'text', array('required' => false))
+        $builder->add('title', 'text', array('required' => false))
             ->add('prefix_projection', 'text', array('required' => false))
             ->add('prefix_x', 'text', array('required' => false))
             ->add('prefix_y', 'text', array('required' => false))
