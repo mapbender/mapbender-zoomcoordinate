@@ -273,7 +273,6 @@
             this.MarkerLayer.addMarker(poiMarker);
             
             $.proxy(this._zoom(map), false);
-            debugger;
 
         },
         _findError: function(response) {

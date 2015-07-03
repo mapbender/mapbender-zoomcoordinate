@@ -19,7 +19,7 @@ class ZoomcoordinateAdminType extends AbstractType
      */
     public function getName()
     {
-        return 'zoomcoordinate';
+        return 'zoomcoodinate';
     }
 
     /**

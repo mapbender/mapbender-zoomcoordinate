@@ -13,7 +13,7 @@ class Zoomcoordinate extends Element
      */
     static public function getClassTitle()
     {
-        return "Zoomcoordinate"; # TODO "mb.alkis.alkis_search.class.title";
+        return "Zoomcoordinate"; 
     }
 
     /**
@@ -21,7 +21,7 @@ class Zoomcoordinate extends Element
      */
     static public function getClassDescription()
     {
-        return "Zoomcoordinate Description"; # TODO "mb.alkis.alkis_search.class.description";
+        return "Zoom to a coordinate"; 
     }
 
     /**
@@ -29,7 +29,7 @@ class Zoomcoordinate extends Element
      */
     static public function getClassTags()
     {
-        return array(); # TODO array('mb.alkis.alkis_search.tag.search');
+        return array(); 
     }
 
     /**
@@ -38,12 +38,11 @@ class Zoomcoordinate extends Element
     public static function getDefaultConfiguration()
     {
         return array(
-            'title' => 'search',
-            'koordinatensystem' => array(),
-            'tooltip' => 'zoom',
-            'buffer' => 0.5,
-            'options' => array(),
-//            'dataSrs' => null, set srsData from Solr configuration (parameters.yml)
+            'title' => 'Zoom to Coordinate',
+            'prefix_projection' => 'Projection',
+            'prefix_x' => 'x',
+            'prefix_y' => 'y',
+            'type' => null,
             'target' => null,
         );
     }
