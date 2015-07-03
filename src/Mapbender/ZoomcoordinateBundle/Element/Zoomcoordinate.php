@@ -21,7 +21,7 @@ class Zoomcoordinate extends Element
      */
     static public function getClassDescription()
     {
-        return "Zoom to a coordinate"; 
+        return "Navigate to a coordinate"; 
     }
 
     /**
