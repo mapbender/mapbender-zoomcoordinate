@@ -178,7 +178,6 @@
 
                 }
             }
-           
         },
         _findSuccess: function() {
 
