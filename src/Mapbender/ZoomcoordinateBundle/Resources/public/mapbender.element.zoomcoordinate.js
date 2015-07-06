@@ -7,7 +7,6 @@
             type: 'dialog'
         },
         _create: function() {
-            console.log(this.options);
             if (!Mapbender.checkTarget("mbZoomcoordinate", this.options.target)) {
                 return;
             }
@@ -26,14 +25,10 @@
             if (title2 !== null) {
                 $(".mb-element-zoomcoordinate-text").eq(2).html(title2);
             }
-            this.target = $("#" + this.options.target).data("mapbenderMbMap");//.getModel();
-            //var mbMap = this.mapWidget.data('mapbenderMbMap');
+            this.target = $("#" + this.options.target).data("mapbenderMbMap");
             var options = "";
             var allSrs = this.target.getAllSrs();
-//            for(var i = 0; i < allSrs.length; i++){
-//                options += '<option value="' + allSrs[i].name + '">' + allSrs[i].title + '</option>';
-//            }
-            //
+            
             this.dataSrsProj = this.target.getModel().getProj(this.options.dataSrs);
             this.spatialSearchSrsProj = this.target.getModel().getProj(this.options.spatialSearchSrs);
             this.elementUrl = Mapbender.configuration.application.urls.element + '/' + this.element.attr('id') + '/';
@@ -64,14 +59,9 @@
             this._trigger('ready');
             this._ready();
         },
-        /**
-         * Default action for mapbender element
-         */
+        
         defaultAction: function(callback) {
             this.activate(callback);
-        },
-        testFunction: function() {
-            console.log("testFunction");
         },
         activate: function(callback) {
             this.callback = callback ? callback : null;
@@ -130,6 +120,9 @@
                                         input.eq(0).val();
                                         input.eq(1).val("");
                                         input.eq(2).val("");
+                                        if(self.MarkerLayer) {
+                                            self.MarkerLayer.clearMarkers();
+                                        }
                                     }
                                 },
                                 'search': {
