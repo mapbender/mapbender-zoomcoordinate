@@ -264,7 +264,7 @@
                     }));
             this.MarkerLayer.addMarker(poiMarker);
             
-            $.proxy(this._zoom(map), false);
+            //$.proxy(this._zoom(map), false);
 
         },
         _findError: function(response) {
