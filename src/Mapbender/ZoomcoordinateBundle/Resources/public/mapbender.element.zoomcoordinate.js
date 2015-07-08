@@ -218,7 +218,7 @@
         _zoomToTarget: function(point) {
             this.deactivate();
             var olMap = this.target.map.olMap;
-            $.proxy(this._zoom(olMap, true), this);
+            // $.proxy(this._zoom(olMap, true), this);
             $.proxy(this._setCenter(point, olMap), this);
         },
         _zoom: function(map, first) {
