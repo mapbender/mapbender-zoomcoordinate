@@ -218,19 +218,7 @@
         _zoomToTarget: function(point) {
             this.deactivate();
             var olMap = this.target.map.olMap;
-            // $.proxy(this._zoom(olMap, true), this);
             $.proxy(this._setCenter(point, olMap), this);
-        },
-        _zoom: function(map, first) {
-            if (first === true) {
-                var zoom = map.getZoom();
-                if (zoom > 2) {
-                    map.zoomTo(2);
-                }
-            }
-            else {
-                map.zoomTo(5);
-            }
         },
         _setCenter: function(point, map) {
             
@@ -263,8 +251,6 @@
                         y: this.target.options.poiIcon.yoffset
                     }));
             this.MarkerLayer.addMarker(poiMarker);
-            
-            //$.proxy(this._zoom(map), false);
 
         },
         _findError: function(response) {
